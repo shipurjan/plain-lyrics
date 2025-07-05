@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # Development service - runs `pnpm dev`
+  plain-lyrics-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+    profiles:
+      - dev
+    restart: unless-stopped
+
+  # Static build service - builds for GitHub Pages
+  plain-lyrics-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    volumes:
+      - .:/host
+    environment:
+      - NODE_ENV=production
+    user: '${USER_ID:-1000}:${GROUP_ID:-1000}'
+    profiles:
+      - build
+    command:
+      [
+        'sh',
+        '-c',
+        "cp -r /app/out /host/ && echo 'Static build completed - check ./out directory'",
+      ]

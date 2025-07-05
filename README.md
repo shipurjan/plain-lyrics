@@ -30,3 +30,51 @@ Plain Lyrics is a simple web application that allows users to fetch and display 
 ## Configuration
 
 Visit the `/settings` route to configure your Genius.com API key, which will be stored locally for future use.
+
+## Docker Usage
+
+The project includes Docker support for both development and building static files for GitHub Pages.
+
+### Development
+
+Run the development server with hot-reload:
+
+```bash
+docker-compose --profile dev up
+```
+
+This will:
+
+- Start the development server on `http://localhost:3000`
+- Enable hot-reload for code changes
+- Mount your local files for real-time development
+
+### Static Build for GitHub Pages
+
+Build static files for deployment:
+
+```bash
+docker-compose --profile build up
+```
+
+This will:
+
+- Build the application for production
+- Generate static files in the `./out` directory
+- Optimize the build for static hosting
+
+The generated files in `./out` can be deployed directly to GitHub Pages or any static hosting service.
+
+### Manual Docker Commands
+
+You can also run Docker commands directly:
+
+```bash
+# Development
+docker build --target dev -t plain-lyrics:dev .
+docker run -p 3000:3000 -v $(pwd):/app plain-lyrics:dev
+
+# Static build
+docker build --target build -t plain-lyrics:build .
+docker run -v $(pwd)/out:/app/out plain-lyrics:build
+```
