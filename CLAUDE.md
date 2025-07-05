@@ -141,6 +141,7 @@ Refer to this documentation when implementing the Genius.com API integration.
    - Optimize for performance
 
 ## Quality Standards
+- Always run `pnpm format` before `pnpm lint` to fix formatting issues
 - Run `pnpm lint` and `pnpm lint:types` before committing
 - Ensure all TypeScript errors are resolved
 - Test functionality with actual Genius.com URLs
