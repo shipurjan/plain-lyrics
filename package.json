@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "docker:dev": "docker compose --profile dev up",
-    "docker:build": "USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose --profile build up",
+    "preview": "serve out",
+    "docker:dev": "docker compose --profile dev up --build",
+    "docker:build": "USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose --profile build up --build",
     "format": "prettier --write \"**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,css,scss}\"",
     "lint": "eslint --config eslint.config.mjs \"src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}\" --quiet --cache",
     "lint:types": "tsc --skipLibCheck --noEmit"
@@ -35,6 +35,7 @@
     "husky": "9.1.7",
     "lint-staged": "16.1.2",
     "prettier": "3.6.2",
+    "serve": "14.2.4",
     "tailwindcss": "4.1.11",
     "typescript": "5.8.3",
     "typescript-eslint": "8.35.1"

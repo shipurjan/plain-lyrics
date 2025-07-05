@@ -14,6 +14,8 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN pnpm run build
+RUN pnpm run lint
+RUN pnpm run lint:types
 RUN pnpm store prune \
     && rm -rf /root/.pnpm-store /root/.npm /tmp/* /var/tmp/* .next/cache /app/.next/cache
 
