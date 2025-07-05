@@ -68,14 +68,17 @@ export default function Lyrics() {
   if (!songId) {
     return (
       <div className="min-h-screen bg-gray-50 py-8">
-        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">
+        <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
+          <h1 className="mb-4 text-2xl font-bold text-red-600">
             Invalid Request
           </h1>
-          <p className="text-gray-700 mb-4">No song ID provided.</p>
+          <p className="mb-4 text-gray-700">No song ID provided.</p>
           <Link
             href="/"
-            className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+            className={`
+              rounded-md bg-blue-600 px-4 py-2 text-white
+              hover:bg-blue-700
+            `}
           >
             Back to Home
           </Link>
@@ -86,21 +89,27 @@ export default function Lyrics() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md">
         <div className="mb-6">
-          <Link href="/" className="text-blue-600 hover:text-blue-800 text-sm">
+          <Link
+            href="/"
+            className={`
+              text-sm text-blue-600
+              hover:text-blue-800
+            `}
+          >
             ← Back to Search
           </Link>
         </div>
 
         {loading && (
-          <div className="text-center py-8">
+          <div className="py-8 text-center">
             <div className="text-lg text-gray-600">Loading song details...</div>
           </div>
         )}
 
         {error && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
+          <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-4">
             <p className="text-sm text-red-800">{error}</p>
           </div>
         )}
@@ -108,15 +117,15 @@ export default function Lyrics() {
         {songDetails && (
           <div>
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="mb-2 text-3xl font-bold text-gray-900">
                 {songDetails.title}
               </h1>
-              <h2 className="text-xl text-gray-600 mb-4">
+              <h2 className="mb-4 text-xl text-gray-600">
                 by {songDetails.artist}
               </h2>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
-                <p className="text-sm text-blue-800 mb-2">
+              <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+                <p className="mb-2 text-sm text-blue-800">
                   <strong>Note:</strong> The Genius API provides song metadata
                   but not the full lyrics text.
                 </p>
@@ -127,7 +136,10 @@ export default function Lyrics() {
                   href={songDetails.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline text-sm"
+                  className={`
+                    text-sm text-blue-600 underline
+                    hover:text-blue-800
+                  `}
                 >
                   View on Genius.com →
                 </a>
@@ -135,7 +147,7 @@ export default function Lyrics() {
             </div>
 
             <div className="text-center">
-              <p className="text-gray-500 text-sm">
+              <p className="text-sm text-gray-500">
                 Lyrics display functionality can be enhanced by implementing
                 additional scraping or using other lyrics APIs.
               </p>

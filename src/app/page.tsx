@@ -47,8 +47,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+      <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
+        <h1 className="mb-8 text-center text-3xl font-bold text-gray-900">
           Plain Lyrics
         </h1>
 
@@ -61,7 +61,7 @@ export default function Home() {
           <div className="mb-4">
             <label
               htmlFor="url"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className="mb-2 block text-sm font-medium text-gray-700"
             >
               Genius.com URL
             </label>
@@ -73,18 +73,30 @@ export default function Home() {
                 setUrl(e.target.value)
               }}
               disabled={!apiKey || loading}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
+              className={`
+                w-full rounded-md border border-gray-300 px-3 py-2
+                focus:border-transparent focus:ring-2 focus:ring-blue-500
+                focus:outline-none
+                disabled:cursor-not-allowed disabled:bg-gray-100
+              `}
               placeholder="https://genius.com/artist-song-title-lyrics"
             />
           </div>
 
           {!apiKey && (
-            <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-md">
+            <div
+              className={`
+                mb-4 rounded-md border border-yellow-200 bg-yellow-50 p-4
+              `}
+            >
               <p className="text-sm text-yellow-800">
                 Please set your Genius API key first.{' '}
                 <Link
                   href="/settings"
-                  className="text-blue-600 hover:text-blue-800 font-medium"
+                  className={`
+                    font-medium text-blue-600
+                    hover:text-blue-800
+                  `}
                 >
                   Go to Settings
                 </Link>
@@ -95,14 +107,19 @@ export default function Home() {
           <button
             type="submit"
             disabled={!apiKey || !url.trim() || loading}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className={`
+              w-full rounded-md bg-blue-600 px-4 py-2 text-white
+              hover:bg-blue-700
+              focus:ring-2 focus:ring-blue-500 focus:outline-none
+              disabled:cursor-not-allowed disabled:bg-gray-400
+            `}
           >
             {loading ? 'Loading...' : 'Get Lyrics'}
           </button>
         </form>
 
         {error && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
+          <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-4">
             <p className="text-sm text-red-800">{error}</p>
           </div>
         )}
@@ -111,7 +128,10 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/settings"
-              className="text-sm text-gray-600 hover:text-gray-800"
+              className={`
+                text-sm text-gray-600
+                hover:text-gray-800
+              `}
             >
               Settings
             </Link>

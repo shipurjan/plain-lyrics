@@ -1,3 +1,5 @@
+// @ts-check
+
 const config = {
   plugins: ['@tailwindcss/postcss'],
 }
