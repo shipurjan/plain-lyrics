@@ -25,6 +25,17 @@ src/
 └── types/               # TypeScript type definitions (to be created)
 ```
 
+## API Documentation
+
+The project includes comprehensive Genius.com API documentation in `docs/genius_api.md` which covers:
+- Authentication and OAuth2 flow
+- Available endpoints (Search, Songs, Artists, Annotations)
+- Request/response formats
+- Client access tokens for read-only operations
+- Rate limiting and best practices
+
+Refer to this documentation when implementing the Genius.com API integration.
+
 ## Core Features & Implementation
 
 ### 1. Settings Management
