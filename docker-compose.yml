@@ -1,5 +1,4 @@
 services:
-  # Development service - runs `pnpm dev`
   plain-lyrics-dev:
     build:
       context: .
@@ -17,7 +16,6 @@ services:
       - dev
     restart: unless-stopped
 
-  # Static build service - builds for GitHub Pages
   plain-lyrics-build:
     build:
       context: .
