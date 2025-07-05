@@ -6,6 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "docker:dev": "docker compose --profile dev up",
+    "docker:build": "USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose --profile build up",
     "format": "prettier --write \"**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,css,scss}\"",
     "lint": "eslint --config eslint.config.mjs \"src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}\" --quiet --cache",
     "lint:types": "tsc --skipLibCheck --noEmit"
