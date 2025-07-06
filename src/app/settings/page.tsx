@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { Input } from '@/components/input/input'
 import { useSettingsStore } from '@/stores/settings'
 
 export default function Settings() {
@@ -24,7 +25,7 @@ export default function Settings() {
           >
             Genius API Key
           </label>
-          <input
+          <Input
             id="apiKey"
             type="text"
             value={inputValue}

@@ -1,0 +1,7 @@
+{
+    "tailwindCSS.classFunctions": [
+        "makeVariants",
+        "makeVariantResolver",
+        "cn",
+    ],
+}

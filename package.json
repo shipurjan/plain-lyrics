@@ -6,14 +6,15 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "preview": "serve out",
-    "docker:dev": "docker compose --profile dev up --build",
-    "docker:build": "USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose --profile build up --build",
+    "docker:dev": "docker compose --profile dev up --build --force-recreate",
+    "docker:build": "USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose --profile build up --build --force-recreate",
     "format": "prettier --write \"**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,css,scss}\" && eslint --config eslint.config.mjs \"src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}\" --fix",
     "lint": "eslint --config eslint.config.mjs \"src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}\" --quiet --cache",
     "lint:types": "tsc --skipLibCheck --noEmit"
   },
   "dependencies": {
     "clsx": "2.1.1",
+    "cva": "1.0.0-beta.4",
     "next": "15.3.5",
     "nuqs": "2.4.3",
     "react": "19.1.0",

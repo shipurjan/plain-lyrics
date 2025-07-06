@@ -1,5 +1,4 @@
 // @ts-check
-
 import js from '@eslint/js'
 import pluginNext from '@next/eslint-plugin-next'
 import eslintParserTypeScript from '@typescript-eslint/parser'

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { Input } from '@/components/input/input'
 import { findSongFromUrl } from '@/lib/genius'
 import { useSettingsStore } from '@/stores/settings'
 
@@ -65,7 +66,7 @@ export default function Home() {
             >
               Genius.com URL
             </label>
-            <input
+            <Input
               id="url"
               type="url"
               value={url}
