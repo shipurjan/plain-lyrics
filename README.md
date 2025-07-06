@@ -1,80 +1,48 @@
 # Plain Lyrics
 
-A minimalist lyrics viewer inspired by Genius.com that focuses on providing clean, distraction-free access to song lyrics.
+## Project Status: ABANDONED
 
-## About
+**This project has been abandoned due to Genius.com API limitations.**
 
-Plain Lyrics is a simple web application that allows users to fetch and display song lyrics from Genius.com without the visual clutter. Users can paste a Genius.com link and get clean, readable lyrics in a minimal interface.
+Plain Lyrics was intended to be a minimalist, fully static lyrics viewer that could be hosted on GitHub Pages. However, the Genius.com API deliberately excludes lyrics text from their public API, forcing developers to implement server-side scraping to access actual lyrics content.
 
-## Features
+Since the core requirement was a static site deployable to GitHub Pages, and lyrics scraping requires server-side functionality, this approach is fundamentally incompatible with the project goals.
 
-- Clean, minimal lyrics display
-- Genius.com API integration
-- Settings page for API key configuration
-- Global state management with Zustand
-- Persistent settings storage
+## Why Abandoned?
 
-## Getting Started
+1. **Static Site Requirement**: The project was designed to be fully static and hosted on GitHub Pages
+2. **API Limitation**: Genius.com API provides metadata only, no lyrics text
+3. **Incompatible Solutions**: Lyrics access requires server-side scraping, breaking the static site model
+4. **No Workaround**: No viable static-only solution exists for accessing Genius lyrics
+
+The project will remain abandoned until Genius.com adds lyrics to their public API.
+
+## Current State
+
+The repository contains a partially implemented Next.js application with:
+- Basic project structure and dependencies
+- Settings page for API key management  
+- URL parsing and metadata fetching from Genius API
+- Static export configuration
+
+**Note**: The application is unfinished and non-functional for its intended purpose.
+
+## Development Setup (For Reference)
+
+If you want to explore the unfinished code:
 
 1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-3. Run the development server:
-   ```bash
-   pnpm dev
-   ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+2. Install dependencies: `pnpm install`
+3. Run development server: `pnpm dev`
 
-## Configuration
+**Warning**: The application will not work as intended due to the fundamental API limitation described above.
 
-Visit the `/settings` route to configure your Genius.com API key, which will be stored locally for future use.
+## Technical Details
 
-## Docker Usage
+- **Framework**: Next.js 15.3.5 with App Router and static export
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand with localStorage persistence
+- **Target Deployment**: GitHub Pages (static hosting)
 
-The project includes Docker support for both development and building static files for GitHub Pages.
-
-### Development
-
-Run the development server with hot-reload:
-
-```bash
-docker-compose --profile dev up
-```
-
-This will:
-
-- Start the development server on `http://localhost:3000`
-- Enable hot-reload for code changes
-- Mount your local files for real-time development
-
-### Static Build for GitHub Pages
-
-Build static files for deployment:
-
-```bash
-docker-compose --profile build up
-```
-
-This will:
-
-- Build the application for production
-- Generate static files in the `./out` directory
-- Optimize the build for static hosting
-
-The generated files in `./out` can be deployed directly to GitHub Pages or any static hosting service.
-
-### Manual Docker Commands
-
-You can also run Docker commands directly:
-
-```bash
-# Development
-docker build --target dev -t plain-lyrics:dev .
-docker run -p 3000:3000 -v $(pwd):/app plain-lyrics:dev
-
-# Static build
-docker build --target build -t plain-lyrics:build .
-docker run -v $(pwd)/out:/app/out plain-lyrics:build
-```
+The codebase includes Docker configuration and proper TypeScript setup, but lacks the core lyrics functionality that was the project's primary purpose.
